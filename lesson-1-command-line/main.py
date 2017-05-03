@@ -889,7 +889,32 @@ def setup():
 
 
 def main():
-    window = Window(width=800, height=600, caption='Pyglet', resizable=True)
+    global WALKING_SPEED
+    global GRAVITY
+    global TICKS_PER_SEC
+    while True:
+        WALKING_SPEED = float(input("Enter a walking speed between 0 and 100 (the default is 5): "))
+        if WALKING_SPEED < 0 or WALKING_SPEED > 100:
+            print("ERROR: the walking speed must be between 0 and 100; please try again")
+            continue
+        else:
+            break
+    while True:
+        GRAVITY = float(input("Enter a gravity between 0 and 100 (the default is 20): "))
+        if GRAVITY < 0 or GRAVITY > 100:
+            print("ERROR: the gravity must be between 0 and 100; please try again")
+            continue
+        else:
+            break
+    while True:
+        TICKS_PER_SEC = float(input("Enter a number of ticks per second between 0 and 100 (the default is 60): "))
+        if TICKS_PER_SEC < 0 or TICKS_PER_SEC > 100:
+            print("ERROR: the number of ticks per second between 0 and 100; please try again")
+            continue
+        else:
+            break
+    print("Creating your world...")
+    window = Window(width=800, height=600, caption='TSA STEM Activity', resizable=True)
     # Hide the mouse cursor and prevent the mouse from leaving the window.
     window.set_exclusive_mouse(True)
     setup()
